@@ -1,0 +1,79 @@
+package ru.kata.spring.boot_security.demo.dto;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import java.util.Set;
+
+public class CreateUserRequest {
+    @NotBlank(message = "Логин обязателен")
+    @Size(min = 1, max = 50)
+    private String username;
+
+    @NotBlank(message = "Пароль обязателен")
+    @Size(min = 1, max = 50)
+    private String password;
+
+    @NotBlank(message = "Имя обязательно")
+    @Size(min = 1)
+    private String name;
+
+    @NotBlank(message = "Фамилия обязательна")
+    @Size(min = 1)
+    private String surname;
+
+    @Min(value = 0)
+    @Max(value = 150)
+    private int age;
+
+    private Set<Long> roleIds;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Set<Long> getRoleIds() {
+        return roleIds;
+    }
+
+    public void setRoleIds(Set<Long> roleIds) {
+        this.roleIds = roleIds;
+    }
+}
